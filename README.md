@@ -32,7 +32,7 @@ sheet "Históricos", by department.
   (37 semesters for Casanare).
 
 **Production cost:** COP 6,719,257 per hectare, rainfed rice, Llanos zone, 2025-I
-(source: [(https://fedearroz.com.co/es/fondo-nacional-del-arroz/investigaciones-economicas/estadisticas-arroceras/costos/]). Cost is only published for the Llanos zone; it is used as a proxy
+Fede Arroz, [(https://fedearroz.com.co/es/fondo-nacional-del-arroz/investigaciones-economicas/estadisticas-arroceras/costos/]. Cost is only published for the Llanos zone; it is used as a proxy
 for Casanare, which accounts for most of the rice area in the Llanos.
 
 | Item | COP per hectare |
@@ -48,7 +48,7 @@ for Casanare, which accounts for most of the rice area in the Llanos.
 | **Total** | **6,719,257** |
 
 **Price:** COP 1,352,000 per tonne of green paddy rice, Yopal market average, 2025-I
-(source: [add source]).
+Fede Arroz:(https://www.fedearroz.com.co/es/fondo-nacional-del-arroz/investigaciones-economicas/estadisticas-arroceras/precios-del-sector-arrocero/).
 
 ## References
 
