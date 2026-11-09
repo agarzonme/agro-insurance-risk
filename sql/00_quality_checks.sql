@@ -37,3 +37,32 @@ WHERE a.period LIKE '%-II'
   AND a.region = 'Casanare'
   AND ROUND(a.yield_t_ha, 2) = ROUND(b.yield_t_ha, 2)
 ORDER BY a.period;
+
+--Periodos
+SELECT DISTINCT period
+FROM yields
+ORDER BY period;
+
+--Rendimientos promedio por region
+SELECT region,
+       ROUND(AVG(yield_t_ha), 2) AS avg_yield
+FROM yields
+WHERE period >= '2008-I'
+GROUP BY region
+ORDER BY avg_yield DESC;
+
+--La serie de casanare
+SELECT period,
+       ROUND(yield_t_ha, 2) AS yield_t_ha
+FROM yields
+WHERE region = 'Casanare'
+  AND period >= '2008-I'
+ORDER BY period;
+
+--los peores y mejores rendimientos de casanare
+select period, 
+       round(yield_t_ha, 2) as yield_t_ha 
+from yields 
+where region = 'Casanare' 
+  and period >= '2008-I' 
+order by yield_t_ha desc;
