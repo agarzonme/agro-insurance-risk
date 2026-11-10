@@ -2,8 +2,9 @@
 
 Source: sheet "Históricos" of the ENAM annex, tables
 "Rendimientos de arroz mecanizado según departamento. I Semestre" and "... II Semestre".
-Run from the repository root:  python src/load_enam.py
+Run from the repository root:  python src/load_enam.py [--region NAME]
 """
+import argparse
 import re
 from pathlib import Path
 
@@ -12,6 +13,8 @@ import pandas as pd
 
 RAW_FILE = Path("data/raw/ENAM-2026.xlsx")   # <- nombre real del archivo
 DB_PATH = Path("data/processed/agro.duckdb")
+# Fixed label of this source (ENAM only covers rice), not a filter.
+# Must match the `crop` column in config/crops.csv.
 CROP = "arroz"
 SOURCE = "DANE-ENAM (Históricos)"
 
@@ -97,11 +100,25 @@ def save(df: pd.DataFrame, db_path: Path) -> None:
     con.close()
 
 
+def summary(df: pd.DataFrame) -> pd.DataFrame:
+    """Rows, first and last period per region, to spot incomplete series."""
+    return df.groupby("region")["period"].agg(rows="size", first="min", last="max")
+
+
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    parser.add_argument("--region", help="optional: print the last rows of this region")
+    args = parser.parse_args()
+
     tables = find_yield_tables(read_historicos(RAW_FILE))
     yields = to_standard(tables)
     save(yields, DB_PATH)
-    print(f"Tablas semestrales encontradas: {len(tables)} (deben ser 2: I y II)")
-    print(yields[yields["region"] == "Casanare"].tail(6).to_string(index=False))
-    print(f"\n{len(yields)} filas guardadas en {DB_PATH}")
-    print("Regiones:", ", ".join(yields["region"].unique()))
+    print(f"Semiannual tables found: {len(tables)} (expected 2: I and II)")
+    print(summary(yields).to_string())
+    if args.region:
+        detail = yields[yields["region"] == args.region]
+        if detail.empty:
+            print(f"\nRegion '{args.region}' not found.")
+        else:
+            print(f"\n{detail.tail(6).to_string(index=False)}")
+    print(f"\n{len(yields)} rows saved to {DB_PATH}")
