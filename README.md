@@ -51,6 +51,31 @@ Casanare, que concentra la mayor parte del área arrocera de los Llanos.
 **Precio:** $1.352.000 por tonelada de arroz paddy verde, promedio del mercado de Yopal, 2025-I
 ([Fedearroz, precios del sector arrocero](https://www.fedearroz.com.co/es/fondo-nacional-del-arroz/investigaciones-economicas/estadisticas-arroceras/precios-del-sector-arrocero/)).
 
+**Clima:**
+
+- **Índice ONI (El Niño y La Niña):** NOAA,
+  [Oceanic Niño Index](https://www.cpc.ncep.noaa.gov/data/indices/oni.ascii.txt), mensual
+  desde 1950. Es el promedio de 3 meses de la anomalía de temperatura del mar en el Pacífico
+  tropical; cada ventana se asigna a su mes central. Desde +0,5 hay El Niño y desde −0,5, La Niña.
+- **Lluvia diaria:** IDEAM, [DHIME](http://dhime.ideam.gov.co/atencionciudadano/), parámetro
+  "Día pluviométrico (convencional)", de enero de 2007 a marzo de 2026. Se escogieron
+  estaciones en los municipios de Casanare que más arroz sembraron, en promedio, entre 2000
+  y 2025 según la ENAM.
+
+| Estación IDEAM (código) | Cobertura |
+| --- | --- |
+| Paz de Ariporo (36015010) | Diaria completa de 2007 a 2023; faltan abril y mayo de 2020 y buena parte de 2024 a 2026. Es la estación principal. |
+| San Luis de Palenque (35230010) | Diaria completa desde 2018. Antes registra unos 165 días por año, con totales anuales parecidos a los de los años completos: los días sin dato eran, sobre todo, días secos sin anotar. |
+| Trinidad (35235040) | Registra sobre todo los días con lluvia y tiene huecos reales, como mayo de 2011. |
+| Nunchía (35210030) | Solo tiene datos de 2019 y 2020 (220 días), así que se descarta. |
+
+**Cada cosecha con su clima:** en la ENAM, el periodo es el semestre en que se cosecha, y lo
+cosechado se sembró el semestre anterior. En Casanare casi todo se siembra en el primer
+semestre, en secano, y se cosecha entre agosto y octubre: en 2024, el periodo II reunió cerca
+del 92% de la producción del año. Por eso cada cosecha se une con el clima de los meses en que
+estuvo en el campo: de abril a septiembre para el periodo II y de octubre a marzo para el
+periodo I.
+
 ### Limitaciones
 
 - **Promedios por departamento:** la ENAM no tiene datos por finca. Las pérdidas de unas
@@ -65,6 +90,9 @@ Casanare, que concentra la mayor parte del área arrocera de los Llanos.
 - **Las pérdidas vienen en racha:** los tres peores semestres (2011-II, 2012-I y 2013-II)
   son seguidos, así que no se puede suponer, sin revisarlo, que cada semestre es
   independiente del anterior.
+- **Lluvia con huecos y datos recientes sin validar:** un día sin dato puede ser un día seco
+  que no se anotó o un día que nadie midió. Además, desde 2018 los datos del IDEAM de estas
+  estaciones figuran como preliminares o en revisión.
 
 ## Referencias
 
